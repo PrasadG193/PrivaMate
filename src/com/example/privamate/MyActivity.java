@@ -28,8 +28,15 @@ public class MyActivity extends Activity {
         final WallpaperManager wm = WallpaperManager.getInstance(this);
         final Drawable wd = wm.getDrawable();
         tb.setBackground(wd);
+        try {
+            startService(new Intent(this, BackProcess.class));
+        }
+        catch(Exception e){}
+
+
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,6 +44,8 @@ public class MyActivity extends Activity {
         //getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+
     public void clickIt1(View view) {
         entered = entered + "1";
         cnt++;
@@ -102,10 +111,12 @@ public class MyActivity extends Activity {
         {
             attempt_cnt=0;
             Toast.makeText(this,"woooooooooooo",Toast.LENGTH_SHORT).show();
+            //startService(new Intent(this, BackProcess.class));
             Intent intent=new Intent(this,Showapplist.class);
             startActivity(intent);
 
         }
+
         else
         {
             attempt_cnt++;
