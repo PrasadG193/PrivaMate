@@ -26,10 +26,6 @@ public class BackProcess extends Service {
     public void onCreate() {
         super.onCreate();
 
-        KeyguardManager.KeyguardLock kg;
-        KeyguardManager km=(KeyguardManager)getSystemService(KEYGUARD_SERVICE);
-
-
 
 
         IntentFilter filter=new IntentFilter(Intent.ACTION_SCREEN_ON);

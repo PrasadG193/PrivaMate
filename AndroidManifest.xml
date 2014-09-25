@@ -31,7 +31,11 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.example.privamate.MyActivity" />
         </activity>
-        <activity android:name=".ScreenLock"/>
+        <activity android:name=".ScreenLock">
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME"/>
+            <category android:name="android.intent.category.DEFAULT" />
+        </activity>
 
         <service android:name=".BackProcess" android:enabled="true"/>
         <receiver android:name=".Receiver" android:enabled="true">

@@ -2,13 +2,11 @@ package com.example.privamate;
 
 import android.app.Activity;
 import android.app.WallpaperManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.View;
-import android.view.WindowManager;
+import android.view.*;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +19,7 @@ public class ScreenLock extends Activity {
     TextView t1;
     String pass1 = "4321",entered="";
     int cnt=0,attempt_cnt=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +34,8 @@ public class ScreenLock extends Activity {
         }
         catch(Exception e){}*/
 
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
     }
 
 
@@ -44,13 +45,14 @@ public class ScreenLock extends Activity {
 
     }
 
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_HOME)) {
-            Toast.makeText(this, "You pressed the home button!", Toast.LENGTH_LONG).show();
+        if(keyCode==event.KEYCODE_HOME)
             return false;
-        }
-        return super.onKeyDown(keyCode, event);
+        if(keyCode==event.KEYCODE_MENU)
+            return false;
+        return true;
     }
 
 
